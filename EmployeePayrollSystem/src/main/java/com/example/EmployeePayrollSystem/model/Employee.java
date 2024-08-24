@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "employee")
 @Getter
@@ -23,4 +25,7 @@ public class Employee {
 
     @Column(name = "salary", nullable = false)
     private String salary;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private List<Payroll> payrollList;
 }
