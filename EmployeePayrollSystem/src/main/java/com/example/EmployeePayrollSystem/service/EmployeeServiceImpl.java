@@ -32,7 +32,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public Employee updateEmployee(Long employeeId, Employee employeeDetails) {
         Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new NoSuchElementException("Employee id number" + employeeId +" not found"));
-
+        employee.setFirstName(employeeDetails.getFirstName() != null ? employeeDetails.getFirstName() : employee.getFirstName());
+        employee.setLastName(employeeDetails.getLastName() != null ? employeeDetails.getLastName() : employee.getLastName());
+        employee.setSalary(employeeDetails.getSalary());
 
         return employeeRepository.save(employee);
     }

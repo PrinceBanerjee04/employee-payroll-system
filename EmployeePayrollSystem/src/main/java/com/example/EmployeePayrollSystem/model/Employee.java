@@ -26,7 +26,7 @@ public class Employee {
     private String lastName;
 
     @Column(name = "salary", nullable = false)
-    private String salary;
+    private double salary;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private List<Payroll> payrollList;
