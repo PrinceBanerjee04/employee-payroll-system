@@ -28,4 +28,5 @@ public class Payroll {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
+
 }

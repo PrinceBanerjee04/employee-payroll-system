@@ -29,4 +29,5 @@ public class Employee {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private List<Payroll> payrollList;
+
 }
