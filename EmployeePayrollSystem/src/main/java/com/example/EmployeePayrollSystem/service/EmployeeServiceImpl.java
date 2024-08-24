@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -15,26 +16,32 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> getAllEmployees() {
-        return List.of();
+        return employeeRepository.findAll();
     }
 
     @Override
     public Employee getEmployeeById(Long employeeId) {
-        return null;
+        return employeeRepository.findById(employeeId).orElseThrow(() -> new NoSuchElementException("Employee id number" + employeeId +" not found"));
     }
 
     @Override
     public Employee addEmployee(Employee employee) {
-        return null;
+        return employeeRepository.save(employee);
     }
 
     @Override
-    public Employee updateEmployee(Long employeeId, Employee employee) {
-        return null;
+    public Employee updateEmployee(Long employeeId, Employee employeeDetails) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new NoSuchElementException("Employee id number" + employeeId +" not found"));
+
+
+        return employeeRepository.save(employee);
     }
 
     @Override
     public void deleteEmployee(long employeeId) {
-
+        if(!employeeRepository.existsById(employeeId)){
+            throw new NoSuchElementException("Employee id number" + employeeId +" not found");
+        }
+        employeeRepository.deleteById(employeeId);
     }
 }
