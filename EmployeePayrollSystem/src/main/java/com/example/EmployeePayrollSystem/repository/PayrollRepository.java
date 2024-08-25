@@ -18,6 +18,6 @@ public interface PayrollRepository extends JpaRepository<Payroll, Long> {
 
     Payroll findByEmployeeIdAndPayPeriod(Long employeeId, String payPeriod);
 
-    @Query("select case when count(p) > 0 then true else false and from Payroll p where p.payPeriod = :payPeriod")
+    @Query("select case when count(p) > 0 then true else false end from Payroll p where p.payPeriod = :payPeriod")
     Boolean existsByPayPeriod(@Param("payPeriod") String payPeriod);
 }
