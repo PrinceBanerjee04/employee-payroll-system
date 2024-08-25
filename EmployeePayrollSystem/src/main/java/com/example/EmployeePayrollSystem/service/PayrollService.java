@@ -15,4 +15,5 @@ public interface PayrollService {
     Payroll addPayroll(Long employeeId, Payroll payroll);
 
     Payroll updatePayroll(Long payrollId, Payroll payrollDetails);
+
 }
