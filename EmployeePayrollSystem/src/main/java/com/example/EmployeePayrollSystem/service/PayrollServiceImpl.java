@@ -1,5 +1,6 @@
 package com.example.EmployeePayrollSystem.service;
 
+import com.example.EmployeePayrollSystem.exception.ResourceNotFoundException;
 import com.example.EmployeePayrollSystem.model.Employee;
 import com.example.EmployeePayrollSystem.model.Payroll;
 import com.example.EmployeePayrollSystem.repository.EmployeeRepository;
@@ -46,13 +47,13 @@ public class PayrollServiceImpl implements PayrollService{
             payroll.setGrossPay(grossPay);
             payroll.setNetPay(netPay);
             return payrollRepository.save(payroll);
-        }).orElseThrow(() -> new NoSuchElementException("Employee id number " + employeeId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("Employee id number " + employeeId + " not found"));
         return p;
     }
 
     @Override
     public Payroll updatePayroll(Long payrollId, Payroll payrollDetails) {
-        Payroll payroll = payrollRepository.findById(payrollId).orElseThrow(() -> new NoSuchElementException("Payroll id " +payrollId+ " not found"));
+        Payroll payroll = payrollRepository.findById(payrollId).orElseThrow(() -> new ResourceNotFoundException("Payroll id " +payrollId+ " not found"));
 
         payroll.setGrossPay(!Double.isNaN(payrollDetails.getGrossPay()) ? payrollDetails.getGrossPay() : payroll.getGrossPay());
         payroll.setNetPay(!Double.isNaN(payrollDetails.getNetPay()) ? payrollDetails.getNetPay() : payroll.getNetPay());

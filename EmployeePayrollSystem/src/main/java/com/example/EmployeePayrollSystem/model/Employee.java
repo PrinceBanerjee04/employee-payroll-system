@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @Entity
@@ -26,6 +28,8 @@ public class Employee {
     private String lastName;
 
     @Column(name = "salary", nullable = false)
+    @Min(value = 1, message = "Invalid salary: Equals to zero")
+    @Max(value = 100, message = "Invalid salary: Exceeds salary range")
     private double salary;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")

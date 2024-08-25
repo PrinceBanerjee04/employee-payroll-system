@@ -1,5 +1,6 @@
 package com.example.EmployeePayrollSystem.service;
 
+import com.example.EmployeePayrollSystem.exception.ResourceNotFoundException;
 import com.example.EmployeePayrollSystem.model.Employee;
 import com.example.EmployeePayrollSystem.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee getEmployeeById(Long employeeId) {
-        return employeeRepository.findById(employeeId).orElseThrow(() -> new NoSuchElementException("Employee id number" + employeeId +" not found"));
+        return employeeRepository.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Employee id number" + employeeId +" not found"));
     }
 
     @Override
@@ -31,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee updateEmployee(Long employeeId, Employee employeeDetails) {
-        Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new NoSuchElementException("Employee id number" + employeeId +" not found"));
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Employee id number" + employeeId +" not found"));
         employee.setFirstName(employeeDetails.getFirstName() != null ? employeeDetails.getFirstName() : employee.getFirstName());
         employee.setLastName(employeeDetails.getLastName() != null ? employeeDetails.getLastName() : employee.getLastName());
         employee.setSalary(employeeDetails.getSalary());
@@ -42,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void deleteEmployee(long employeeId) {
         if(!employeeRepository.existsById(employeeId)){
-            throw new NoSuchElementException("Employee id number" + employeeId +" not found");
+            throw new ResourceNotFoundException("Employee id number" + employeeId +" not found");
         }
         employeeRepository.deleteById(employeeId);
     }
