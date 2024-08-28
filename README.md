@@ -34,7 +34,7 @@ EmployeePayrollSystemSpringBootProject
 │   │   ├── java
 │   │   │   └── com
 │   │   │       └── example
-│   │   │           └── studentmanager
+│   │   │           └── employeepayrollsystem
 │   │   │               ├── controller
 │   │   │               ├── exception
 |   |   |               ├── model
@@ -84,32 +84,29 @@ EmployeePayrollSystemSpringBootProject
 
 ## API Endpoints
 
-#### API URL
-```bash
-https://studentmanagerspringbootproject-exceptional.up.railway.app
-```
+### Employee Controller
 
-### Student Controller
-
-| Method | Endpoint                         | Description                        |
-|--------|----------------------------------|------------------------------------|
-| POST   | `/students`                      | Register a new student             |
-| GET    | `/students/{rollNo}`             | Get a student by roll number       |
-| GET    | `/students/all`                  | Get all students                   |
-| DELETE | `/students/{id}`                 | Delete a student by id    |
+| Method | Endpoint                          | Description                          |
+|--------|-----------------------------------|--------------------------------------|
+| POST   | `/employees`                      | Register a new employee              |
+| GET    | `/employees/{id}`                 | Get an employee by ID                |
+| GET    | `/employees/all`                  | Get all employees                    |
+| PUT    | `/employees/{id}/payroll`         | Calculate and store payroll for an employee |
+| DELETE | `/employees/{id}`                 | Delete an employee by ID             |
 
 
 
 ## Database Configuration
 
-Configure your database settings in the `src/main/resources/application-dev.yml` file:
+Configure your database settings in the `src/main/resources/application.properties` file:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/student_details
+spring.application.name=EmployeePayrollSystem
+spring.datasource.url=jdbc:mysql://localhost:3306/payroll_db
 spring.datasource.username=root
-spring.datasource.password=yourpassword
+spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 ```
 
 ## License
