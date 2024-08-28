@@ -13,10 +13,11 @@ This is a Spring Boot API for managing employee payroll data, built to streamlin
 - [Contact](#contact)
 
 ## Features
-- **Register Student:** Add a new student to the database.
-- **Get Student by Roll Number:** Retrieve specific student details using their roll number.
-- **Get All Students:** Fetch details of all students in the database.
-- **Delete Student:** Remove a student from the database.
+- **Register Employee:** Add a new employee to the database.
+- **Get Employee by ID:** Retrieve specific employee details using their ID.
+- **Get All Employees:** Fetch details of all employees in the database.
+- **Calculate and Store Payroll:** Compute and save payroll details such as gross pay, net pay, and pay period for each employee.
+- **Delete Employee:** Remove an employee and their associated payroll data from the database.
 
 ## Technologies Used
 - **Java**: Core programming language.
