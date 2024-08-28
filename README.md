@@ -28,7 +28,7 @@ This is a Spring Boot API for managing employee payroll data, built to streamlin
 
 ## Project Structure
 ```bsh
-StudentManagerSpringBootProject
+EmployeePayrollSystemSpringBootProject
 ├── src
 │   ├── main
 │   │   ├── java
@@ -36,19 +36,21 @@ StudentManagerSpringBootProject
 │   │   │       └── example
 │   │   │           └── studentmanager
 │   │   │               ├── controller
-│   │   │               ├── entity
+│   │   │               ├── exception
+|   |   |               ├── model
 │   │   │               ├── repository
+|   |   |               ├── security
 │   │   │               ├── service
-│   │   │               └── StudentManagerApplication.java
+│   │   │               └── EmployeePayrollSystemApplication.java
 │   │   └── resources
 │   │       ├── application.properties
-│   │       └── schema.sql
+│   │       └── application-local.properties
 │   └── test
 │       └── java
 │           └── com
 │               └── example
-│                   └── studentmanager
-│                       └── StudentManagerApplicationTests.java
+│                   └── employeepayrollsystem
+│                       └── EmployeePayrollSystemApplicationTests.java
 └── pom.xml
 ```
 
