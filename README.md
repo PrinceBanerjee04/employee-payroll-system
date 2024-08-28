@@ -1,4 +1,4 @@
-# StudentManagerSpringBootProject
+# EmployeePayrollSpringBootProject
 
 This is a Spring Boot API for managing employee payroll data, built to streamline payroll processing within an organization. The API supports various CRUD operations such as registering employees, retrieving employee details by ID, calculating and storing payroll information, and managing payroll records. It integrates MySQL for data persistence, employs Lombok for efficient code management, and uses Spring Security to ensure the protection of sensitive employee and payroll data.
 
