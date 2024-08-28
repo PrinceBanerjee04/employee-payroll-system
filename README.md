@@ -54,11 +54,13 @@ EmployeePayrollSystemSpringBootProject
 └── pom.xml
 ```
 
-- **`controller`**: Contains REST controllers that handle incoming HTTP requests and responses.
-- **`entity`**: Contains the JPA entities representing the database tables.
-- **`repository`**: Contains the repository interfaces for database operations.
-- **`service`**: Contains the service classes implementing business logic.
-- **`StudentManagerApplication.java`**: Main class to run the Spring Boot application.
+- **`controller`**: Contains REST controllers that handle incoming HTTP requests and responses related to employees and payroll.
+- **`exception`**: Contains custom exception classes for handling application-specific errors.
+- **`model`**: Contains the JPA entities representing the database tables for employees and payroll data.
+- **`repository`**: Contains repository interfaces for CRUD operations on the database.
+- **`security`**: Contains security configurations and classes for managing authentication and authorization.
+- **`service`**: Contains service classes that implement the business logic for managing employees and payroll.
+- **`EmployeePayrollSystemApplication.java`**: Main class to run the Spring Boot application.
 
    ## Setup and Installation
 
