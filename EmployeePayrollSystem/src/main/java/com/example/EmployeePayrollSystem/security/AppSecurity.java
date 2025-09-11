@@ -24,8 +24,8 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @EnableWebSecurity
 public class AppSecurity {
 
-    @Autowired(required = true)
-    DelegatingAuthenticationEntryPoint authenticationEntryPoint;
+//    @Autowired(required = true)
+//    DelegatingAuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
     public PasswordEncoder encoder() {
@@ -44,7 +44,8 @@ public class AppSecurity {
                 .requestMatchers(toH2Console()).permitAll()
                 .anyRequest().authenticated().and()
                 .httpBasic(Customizer.withDefaults())
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).accessDeniedHandler(accessDeniedHandler());
+                        .exceptionHandling(Customizer.withDefaults());
+//                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).accessDeniedHandler(accessDeniedHandler());
 
         http.headers().frameOptions().sameOrigin();
 
